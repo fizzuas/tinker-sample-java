@@ -5,8 +5,8 @@ ext {
             sdkTargetVersion : 26,
             sdkCompileVersion : 26,
             toolsBuildVersion : "26.0.2",
-            appVersionCode : 4,
-            appVersionName : "1.0.4"
+            appVersionCode :2,
+            appVersionName : "1.0.2"
     ]
 // 依赖相关版本控制
     depVersion = [

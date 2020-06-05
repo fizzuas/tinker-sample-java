@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 1.6.82
 # min_api: 22
-# pg_map_id: f1ad9e5
+# pg_map_id: 96ccf0c
 # common_typos_disable
 androidx.activity.Cancellable -> a.a.a:
 androidx.activity.ComponentActivity -> androidx.activity.ComponentActivity:
@@ -6552,16 +6552,18 @@ androidx.versionedparcelable.VersionedParcelParcel -> a.p.b:
     java.lang.String readString() -> i
 androidx.versionedparcelable.VersionedParcelable -> a.p.c:
 com.kydw.tinker_sample_java.MainActivity -> com.kydw.tinker_sample_java.MainActivity:
+    java.lang.String getVersionCode(android.content.Context) -> a
+    java.lang.String getVersionName(android.content.Context) -> b
     void askForRequiredPermissions() -> o
     boolean hasRequiredPermissions() -> p
 com.kydw.tinker_sample_java.MainActivity$1 -> com.kydw.tinker_sample_java.MainActivity$a:
     com.kydw.tinker_sample_java.MainActivity this$0 -> b
+com.kydw.tinker_sample_java.MainActivity$2 -> com.kydw.tinker_sample_java.MainActivity$b:
 com.kydw.tinker_sample_java.SampleApplicationContext -> b.a.a.a:
     android.app.Application application -> a
     android.content.Context context -> b
 com.kydw.tinker_sample_java.SampleResultService -> com.kydw.tinker_sample_java.SampleResultService:
     void onPatchResult(com.tencent.tinker.lib.service.PatchResult) -> a
-    void restartProcess() -> a
 com.kydw.tinker_sample_java.SampleResultService$1 -> com.kydw.tinker_sample_java.SampleResultService$a:
     com.tencent.tinker.lib.service.PatchResult val$result -> b
     com.kydw.tinker_sample_java.SampleResultService this$0 -> c

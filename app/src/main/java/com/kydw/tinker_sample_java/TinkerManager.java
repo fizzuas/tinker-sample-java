@@ -28,9 +28,6 @@ import com.tencent.tinker.lib.reporter.PatchReporter;
 import com.tencent.tinker.lib.tinker.TinkerInstaller;
 import com.tencent.tinker.lib.util.TinkerLog;
 import com.tencent.tinker.lib.util.UpgradePatchRetry;
-
-
-
 /**
  * Created by zhangshaowen on 16/7/3.
  */

@@ -201,7 +201,7 @@ if (buildWithTinker()) {
              *
              * <b>Notice that currently this feature is incubating and only support NON-EXPORTED Activity</b>
              */
-            supportHotplugComponent = false
+            supportHotplugComponent = true
         }
 
         dex {

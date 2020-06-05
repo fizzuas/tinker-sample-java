@@ -61,8 +61,9 @@ public class SampleResultService extends DefaultTinkerResultService {
         // is success and newPatch, it is nice to delete the raw file, and restart at once
         // for old patch, you can't delete the patch file
         if (result.isSuccess) {
+
             deleteRawPatchFile(new File(result.rawPatchFilePath));
-            restartProcess();
+//            restartProcess();
         }
     }
 
