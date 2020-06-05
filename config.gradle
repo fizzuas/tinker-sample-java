@@ -1,0 +1,17 @@
+ext {
+// app 相关版本控制
+    versions = [
+            sdkMinVersion : 15,
+            sdkTargetVersion : 26,
+            sdkCompileVersion : 26,
+            toolsBuildVersion : "26.0.2",
+            appVersionCode : 4,
+            appVersionName : "1.0.4"
+    ]
+// 依赖相关版本控制
+    depVersion = [
+    ]
+// 依赖
+    deps = [
+    ]
+}
