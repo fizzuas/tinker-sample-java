@@ -15,8 +15,11 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.orhanobut.logger.Logger;
 import com.tencent.tinker.lib.tinker.TinkerInstaller;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,26 +30,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button butLoad=findViewById(R.id.but_load);
-        Button but=findViewById(R.id.button);
+        Button but=findViewById(R.id.btn_next);
+        TextView tvContent=findViewById(R.id.tv_content);
         askForRequiredPermissions();
-        butLoad.setText("load patch");
 
         butLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch1");
+                TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch");
             }
         });
 
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,SecondActiviy.class));
+                startActivity(new Intent(MainActivity.this,SecondActivity.class));
             }
         });
 
-        TextView tv=findViewById(R.id.tv);
+        TextView tv=findViewById(R.id.tv_version);
         tv.setText(getVersionName(this)+","+getVersionCode(this));
+
+
+        ImageView img=findViewById(R.id.img);
+        Glide.with(this).load("http://goo.gl/gEgYUd").into(img);
+
+        tvContent.setText("patch1");
     }
 
     private void askForRequiredPermissions() {

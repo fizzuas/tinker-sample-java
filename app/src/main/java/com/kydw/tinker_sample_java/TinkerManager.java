@@ -28,9 +28,7 @@ import com.tencent.tinker.lib.reporter.PatchReporter;
 import com.tencent.tinker.lib.tinker.TinkerInstaller;
 import com.tencent.tinker.lib.util.TinkerLog;
 import com.tencent.tinker.lib.util.UpgradePatchRetry;
-/**
- * Created by zhangshaowen on 16/7/3.
- */
+
 public class TinkerManager {
     private static final String TAG = "Tinker.TinkerManager";
 
@@ -40,17 +38,13 @@ public class TinkerManager {
     public static void setTinkerApplicationLike(ApplicationLike appLike) {
         applicationLike = appLike;
     }
-
     public static ApplicationLike getTinkerApplicationLike() {
         return applicationLike;
     }
 
-
-
     public static void setUpgradeRetryEnable(boolean enable) {
         UpgradePatchRetry.getInstance(applicationLike.getApplication()).setRetryEnable(enable);
     }
-
 
     /**
      * all use default class, simply Tinker install method
@@ -62,7 +56,6 @@ public class TinkerManager {
         }
         TinkerInstaller.install(appLike);
         isInstalled = true;
-
     }
 
     /**
@@ -84,11 +77,9 @@ public class TinkerManager {
         PatchListener patchListener = new DefaultPatchListener(appLike.getApplication());
         //you can set your own upgrade patch if you need
         AbstractPatch upgradePatchProcessor = new UpgradePatch();
-
         TinkerInstaller.install(appLike,
             loadReporter, patchReporter, patchListener,
             SampleResultService.class, upgradePatchProcessor);
-
         isInstalled = true;
     }
 }

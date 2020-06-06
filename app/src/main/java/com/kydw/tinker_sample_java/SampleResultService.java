@@ -20,6 +20,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
+import com.orhanobut.logger.Logger;
 import com.tencent.tinker.lib.service.DefaultTinkerResultService;
 import com.tencent.tinker.lib.service.PatchResult;
 import com.tencent.tinker.lib.util.TinkerLog;
@@ -30,24 +31,28 @@ import java.io.File;
 /**
  * optional, you can just use DefaultTinkerResultService
  * we can restart process when we are at background or screen off
- * Created by zhangshaowen on 16/4/13.
  */
 public class SampleResultService extends DefaultTinkerResultService {
-    private static final String TAG = "Tinker.SampleResultService";
-
+    private static final String TAG = "Tinker";
 
     @Override
     public void onPatchResult(final PatchResult result) {
+        Handler handler = new Handler(Looper.getMainLooper());
         if (result == null) {
-            TinkerLog.e(TAG, "SampleResultService received null result!!!!");
+           Logger.e(TAG, "SampleResultService received null result!!!!");
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(getApplicationContext(), "patch result ==null", Toast.LENGTH_LONG).show();
+                }
+            });
             return;
         }
-        TinkerLog.i(TAG, "SampleResultService receive result: %s", result.toString());
+        Logger.i(TAG, "SampleResultService receive result: %s", result.toString());
 
         //first, we want to kill the recover process
         TinkerServiceInternals.killTinkerPatchServiceProcess(getApplicationContext());
 
-        Handler handler = new Handler(Looper.getMainLooper());
         handler.post(new Runnable() {
             @Override
             public void run() {
@@ -61,7 +66,6 @@ public class SampleResultService extends DefaultTinkerResultService {
         // is success and newPatch, it is nice to delete the raw file, and restart at once
         // for old patch, you can't delete the patch file
         if (result.isSuccess) {
-
             deleteRawPatchFile(new File(result.rawPatchFilePath));
 //            restartProcess();
         }

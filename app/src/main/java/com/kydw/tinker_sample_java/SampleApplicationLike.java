@@ -67,7 +67,6 @@ public class SampleApplicationLike extends DefaultApplicationLike {
     /**
      * install multiDex before install tinker
      * so we don't need to put the tinker lib classes in the main dex
-     *
      * @param base
      */
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
@@ -86,7 +85,6 @@ public class SampleApplicationLike extends DefaultApplicationLike {
         TinkerManager.installTinker(this);
         Tinker tinker = Tinker.with(getApplication());
     }
-
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     public void registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks callback) {
         getApplication().registerActivityLifecycleCallbacks(callback);
